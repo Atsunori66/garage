@@ -85,7 +85,7 @@ class Application(tk.Frame):
                     break
 
                 if self.life == 0:
-                    self.congrats = tk.messagebox.showinfo('無念!', 'Master: ' + self.master_numbers[0] + self.master_numbers[1] + self.master_numbers[2] + self.master_numbers[3])
+                    self.failure = tk.messagebox.showinfo('無念!', 'Master: ' + self.master_numbers[0] + self.master_numbers[1] + self.master_numbers[2] + self.master_numbers[3])
                     self.box.delete(0, tk.END)
                     break
 
