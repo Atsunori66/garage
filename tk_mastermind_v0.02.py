@@ -79,6 +79,7 @@ class Application(tk.Frame):
                         self.hit += 1
                     else:
                         self.blow += 1
+
                 if self.hit == 4:
                     self.congrats = tk.messagebox.showinfo('', '見事!')
                     self.box.delete(0, tk.END)
