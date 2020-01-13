@@ -23,7 +23,6 @@ class Application(tk.Frame):
         self.box.focus_set()
         self.explanation = tk.Label(self.master, text = 'Enter: 入力, Esc: 終了', font = ('メイリオ', 10))
         self.explanation.grid(row = 1, column = 3)
-        
 
     def close(self, event):
         self.master.destroy()
