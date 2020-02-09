@@ -1,5 +1,6 @@
 import sys
 import tkinter as tk
+import time
 
 class mememe(tk.Frame):
     def __init__(self, master = None):
@@ -9,7 +10,11 @@ class mememe(tk.Frame):
         self.canvas = tk.Canvas(master, width = 500, height = 500, bg = 'white')
         self.canvas.pack()
 
-        self.canvas.create_oval(5, 5, 40, 40, fill = 'red', tag = 'circle1')
+        self.canvas.create_oval(300 - 20, 300 - 20, 300 + 20, 300 + 20, fill = 'red', tag = 'circle1')
+        self.canvas.create_oval(30, 30, 100, 100, fill = 'blue', tag = 'circle2')
+
+        self.delay = 20
+        self.auto_move()
 
         master.bind('<Up>', self.up)
         master.bind('<Down>', self.down)
@@ -31,6 +36,10 @@ class mememe(tk.Frame):
 
     def escape(self, event):
         sys.exit()
+
+    def auto_move(self):
+        self.canvas.move('circle2', 0, 1)
+        self.canvas.after(self.delay, self.auto_move)
 
 def main():
     root = tk.Tk()
