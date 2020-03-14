@@ -1,4 +1,4 @@
-**This is *mine!***
+**It's all *mine!***
 ---
 mainly for Python
 
