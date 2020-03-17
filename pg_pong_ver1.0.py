@@ -6,11 +6,11 @@ import pygame
 WIDTH = 700
 HEIGHT = 400
 
-INIT_SPEED = 10
+INIT_SPEED = 12
 BALL_SIZE = 20
 BALL_COLOR = (255, 255, 255)
 
-SWING = 20
+SWING = 24
 RACKET1_SIZE = (10, 180, 10, 90)
 RACKET1_COLOR = (255, 255, 255)
 
@@ -29,15 +29,15 @@ def main():
     pygame.key.set_repeat(10, 10)
     clock = pygame.time.Clock()
     surface = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption('Pong?')
+    pygame.display.set_caption('Pong!')
 
     end_font = pygame.font.Font(None, 60)
-    message_over1 = end_font.render('Player 1 is out', True, (255, 0, 0))
+    message_over1 = end_font.render('Player 2 wins!', True, (255, 255, 0))
     message_pos1 = message_over1.get_rect()
     message_pos1.centerx = int(WIDTH / 2)
     message_pos1.centery = int(HEIGHT / 2)
 
-    message_over2 = end_font.render('Player 2 is out', True, (255, 0, 0))
+    message_over2 = end_font.render('Player 1 wins!', True, (0, 255, 255))
     message_pos2 = message_over2.get_rect()
     message_pos2.centerx = int(WIDTH / 2)
     message_pos2.centery = int(HEIGHT / 2)
@@ -117,26 +117,26 @@ def main():
             ball.centery += int(math.sin(math.radians(direction)) * speed)
 
         else:
-            if life1 == 0:
-                game_over_1 = True
-
-            elif life2 == 0:
-                game_over_2 = True
-
-            elif life1 > 0 and life2 > 0:
+            if life1 >= 1 and life2 >= 1:
                 if ball.centerx < 0:
+                    life1 -= 1
                     ball.left = int(WIDTH / 2)
                     ball.top = int(HEIGHT / 2)
                     direction = choice([randint(0, 80), randint(100, 260), randint(280, 360)])
                     speed = INIT_SPEED
-                    life1 -= 1
 
                 if ball.centerx > WIDTH:
+                    life2 -= 1
                     ball.left = int(WIDTH / 2)
                     ball.top = int(HEIGHT / 2)
                     direction = choice([randint(0, 80), randint(100, 260), randint(280, 360)])
                     speed = INIT_SPEED
-                    life2 -= 1
+
+            if life1 < 1:
+                game_over_1 = True
+
+            if life2 < 1:
+                game_over_2 = True
 
         surface.fill((0, 0, 0))
 
