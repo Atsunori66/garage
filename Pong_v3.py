@@ -1,7 +1,7 @@
 import sys
 import math
-from random import randint, choice
 import pygame
+from random import randint, choice
 
 WIDTH = 700
 HEIGHT = 400
@@ -11,6 +11,7 @@ BALL_SIZE = 20
 BALL_COLOR = (255, 255, 255)
 
 RACKET_LENGTH = 90
+
 SWING = 24
 RACKET1_SIZE = (10, int((HEIGHT - RACKET_LENGTH) / 2), 10, RACKET_LENGTH)
 RACKET1_COLOR = (255, 255, 255)
@@ -42,7 +43,7 @@ def main():
 
     message_win2 = end_font.render('You lose...', True, (255, 255, 255))
     message_pos2 = message_win2.get_rect()
-    message_pos2.centerx = int(WIDTH / 4 * 3)
+    message_pos2.centerx = int(WIDTH * 3 / 4)
     message_pos2.centery = int(HEIGHT / 2)
 
     ball = pygame.Rect(surface.get_rect().centerx, surface.get_rect().centery, BALL_SIZE, BALL_SIZE)
@@ -116,11 +117,7 @@ def main():
             ball.centerx += int(math.cos(math.radians(direction)) * speed)
             ball.centery += int(math.sin(math.radians(direction)) * speed)
         else:
-            if score1 >= 11 and score1 >= score2 + 2:
-                victory_1 = True
-            if score2 >= 11 and score2 >= score1 + 2:
-                victory_2 = True
-            else:
+            if (score1 < 11 and score2 < 11) or (score1 >=11 and score1 < score2 + 2) or (score2 >= 11 and score2 < score1 + 2):
                 if ball.centerx > WIDTH:
                     score1 += 1
                     ball.left = int(WIDTH / 2)
@@ -133,6 +130,10 @@ def main():
                     ball.top = int(HEIGHT / 2)
                     direction = choice([randint(60, 80), randint(100, 120), randint(240, 260), randint(280, 300)])
                     speed = INIT_SPEED
+            if score1 >= 11 and score1 >= score2 + 2:
+                victory_1 = True
+            if score2 >= 11 and score2 >= score1 + 2:
+                victory_2 = True
 
         surface.fill((0, 100, 200))
 
