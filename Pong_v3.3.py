@@ -42,7 +42,7 @@ def main():
     pygame.key.set_repeat(1, 1)
     clock = pygame.time.Clock()
     surface = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption('Pong ver.3.3')
+    pygame.display.set_caption('Pong ver.3.3.1')
 
     # ボールのスピードを初期速度に設定
     speed = INIT_SPEED
@@ -98,7 +98,7 @@ def main():
         score1_pos.centery = 40
 
         # AI のスコア表示を設定
-        score2_show = score_font.render('Master Pong: ' + str(score2), True, (255, 255, 255))
+        score2_show = score_font.render('Pong AI: ' + str(score2), True, (255, 255, 255))
         score2_pos = score2_show.get_rect()
         score2_pos.centerx = int(WIDTH * 3 / 4)
         score2_pos.centery = 40
