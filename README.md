@@ -1,10 +1,9 @@
-# It's all ***mine!***
-
 ## mainly for Python
-You can find some trash games in my garage.
+You can find some easy games at my garage.
+
 ### Pong
-The best (but not finest) game I've made so far.
-Its latest version is v3.
+1-player racket-and-ball game which you can run on VS Code etc.
+You have to install pygame to play with.
 
 ---
 since Jan 11, 2020
