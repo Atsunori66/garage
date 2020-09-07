@@ -18,13 +18,13 @@ class Application(tk.Frame):
         self.master_numbers = random.sample(self.list, 4)
 
     def widget(self):
-        self.intro = tk.Label(self.master, text = '    4桁の数字を当ててね (重複無し)    ', font = ('Meiryo', 12))
-        self.intro.grid(row = 1, column = 1)
-        self.box = tk.Entry(self.master, width = 25)
-        self.box.grid(row = 1, column = 2)
+        self.intro = tk.Label(self.master, text='    4桁の数字を当ててね (重複無し)    ', font=('Meiryo', 12))
+        self.intro.grid(row=1, column=1)
+        self.box = tk.Entry(self.master, width=25)
+        self.box.grid(row=1, column=2)
         self.box.focus_set()
-        self.note = tk.Label(self.master, text = '    Enter: 入力, Esc: 終了', font = ('Meiryo', 10))
-        self.note.grid(row = 1, column = 3)
+        self.note = tk.Label(self.master, text='    Enter: 入力, Esc: 終了', font=('Meiryo', 10))
+        self.note.grid(row=1, column=3)
 
     def close(self, event):
         self.master.destroy()
@@ -32,7 +32,7 @@ class Application(tk.Frame):
     def mastermind(self, event):
         self.hit = 0
         self.blow = 0
-        
+
         while True:
             self.guess = self.box.get()
 
@@ -56,7 +56,7 @@ class Application(tk.Frame):
                 self.box.delete(0, tk.END)
                 break
 
-            elif len(self.guess) == len(set(self.guess)):        
+            elif len(self.guess) == len(set(self.guess)):
                 if self.guess[0] in self.master_numbers:
                     if self.guess[0] == self.master_numbers[0]:
                         self.hit += 1
@@ -91,13 +91,13 @@ class Application(tk.Frame):
                     self.box.delete(0, tk.END)
                     break
 
-                if self.hit < 4: 
-                    self.you_guessed = tk.Label(self.master, text = 'You guessed: ' + str(self.guess), font = ('Cascadia Code', 12), fg = '#007fff')
-                    self.you_guessed.grid(row = 14 - self.life, column = 1)
-                    self.hit_blow = tk.Label(self.master, text = 'Hit: ' + str(self.hit) + ', ' + 'Blow: ' + str(self.blow), font = ('Cascadia Code', 12))
-                    self.hit_blow.grid(row = 14 - self.life, column = 2)
-                    self.life_left = tk.Label(self.master, text = 'Life left: ' + str(self.life), font = ('Cascadia Code', 12), fg = '#e34234')
-                    self.life_left.grid(row = 14 - self.life, column = 3)
+                if self.hit < 4:
+                    self.you_guessed = tk.Label(self.master, text='You guessed: ' + str(self.guess), font=('Consolas', 12), fg='#007fff')
+                    self.you_guessed.grid(row=14 - self.life, column=1)
+                    self.hit_blow = tk.Label(self.master, text='Hit: ' + str(self.hit) + ', ' + 'Blow: ' + str(self.blow), font=('Consolas', 12))
+                    self.hit_blow.grid(row=14 - self.life, column=2)
+                    self.life_left = tk.Label(self.master, text='Life left: ' + str(self.life), font=('Consolas', 12), fg='#e34234')
+                    self.life_left.grid(row=14 - self.life, column=3)
                     self.box.delete(0, tk.END)
                     self.life -= 1
                     break
@@ -107,7 +107,7 @@ class Application(tk.Frame):
 
 def main():
     root = tk.Tk()
-    app = Application(master = root)
+    app = Application(master=root)
     app.mainloop()
 
 if __name__ == "__main__":
