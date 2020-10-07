@@ -1,6 +1,3 @@
-# mainly for Python
-You can find some easy games here.
-
 ## Pong
 1-player racket-and-ball game. You can run it on VS Code etc.  
 You have to install pygame beforehand to play with (do "pip install pygame").  
