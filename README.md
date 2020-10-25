@@ -1,5 +1,5 @@
 ## Pong
-1-player racket-and-ball game. You can run it on VS Code etc.  
+One-player racket-and-ball game.  
 You have to install pygame beforehand to play with (do "pip install pygame").  
 
 in-game
@@ -7,7 +7,7 @@ in-game
 - press Esc to exit from game  
 
 ## tk_mastermind  
-Guess 4-digit numbers like "1234".  
+Guess four-digit number like "1234".  
 You can give numbers for ten times.
 
 ---
