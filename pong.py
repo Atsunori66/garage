@@ -112,11 +112,11 @@ def main():
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP and racket1.top > 10:
-                    racket1.centery -= SWING
+                    racket1.centery += -SWING
                 if event.key == pygame.K_DOWN and racket1.bottom < HEIGHT - 10:
                     racket1.centery += SWING
                 if event.key == pygame.K_LEFT and racket1.left > 10:
-                    racket1.centerx -= SWING
+                    racket1.centerx += -SWING
                 if event.key == pygame.K_RIGHT and racket1.right < 100:
                     racket1.centerx += SWING
                 if event.key == pygame.K_ESCAPE:
@@ -132,9 +132,9 @@ def main():
             if racket2.centery < ball.centery - int(HEIGHT / 8) and ball.centerx > int(WIDTH / 2):
                 racket2.centery += AI_SWING + randint(-3, 3)
         elif racket2.centery > ball.centery and racket2.top > 5:
-            racket2.centery -= AI_SWING
+            racket2.centery += -AI_SWING
             if racket2.centery > ball.centery + int(HEIGHT / 8) and ball.centerx > int(WIDTH / 2):
-                racket2.centery -= AI_SWING + randint(-3, 3)
+                racket2.centery += -(AI_SWING + randint(-3, 3))
 
         # ラケットとボール衝突時、角度を反射（ランダムで誤差あり）、ボールを加速
         if racket1.colliderect(ball):
